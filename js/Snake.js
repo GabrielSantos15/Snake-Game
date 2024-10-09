@@ -8,6 +8,11 @@ class Snake {
     update() {
         const head = this.body[this.body.length - 1]
 
+        this.body.forEach((element,index)=>{
+            if(index == this.body.length - 1)return
+            if(element.x == head.x && element.y == head.y)alert("Game over")
+        })
+
         this.body.forEach((postion, index) => {
             ctx.shadowColor = "#090",
                 ctx.shadowBlur = 5,
@@ -16,6 +21,7 @@ class Snake {
                 ctx.fillStyle = "#090"
             }
             ctx.fillRect(postion.x, postion.y, this.size, this.size)
+            ctx.shadowBlur = 0
         });
 
         if (head.x == food.x && head.y == food.y) {
@@ -41,5 +47,9 @@ class Snake {
         }
         this.body.shift()
 
+
+        if (head.x < 0 || head.x > canvas.width - snake.size || head.y < 0 || head.y > canvas.height - snake.size) {
+            alert("game over")
+        }
     }
 }

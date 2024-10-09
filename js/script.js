@@ -23,11 +23,20 @@ const food = new Food({
 function game() {
     clearInterval(loopId)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.strokeStyle = "#0000001f"
+    for(let i = 0;i < canvas.width; i+=snake.size){
+        ctx.moveTo(i,0)
+        ctx.lineTo(i,canvas.width)
+        ctx.moveTo(0,i)
+        ctx.lineTo(canvas.height,i)
+        ctx.stroke()
+    }
 
     food.update()
     snake.update()
+
     
-    loopId = setTimeout(game, 200)
+    loopId = setTimeout(game, 150)
 }
 game()
 
