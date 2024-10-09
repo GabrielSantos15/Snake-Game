@@ -6,7 +6,7 @@ class Food {
     }
     update() {
         ctx.shadowColor = this.color,
-            ctx.shadowBlur = 10,
+            ctx.shadowBlur = 20,
 
             ctx.fillStyle = this.color
         ctx.fillRect(this.x, this.y, snake.size, snake.size)

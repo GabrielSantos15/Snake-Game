@@ -1,24 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="js/Snake.js" defer></script>
     <script src="js/Food.js" defer></script>
     <script src="js/script.js" defer></script>
     <style>
-        body{
-            background-color: #000;
+        body {
+            background-color: #00afaf;
+            color: #fff;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
-        #tela{
+
+        main {
+            margin: auto;
+            width: min(600px, 100%);
+        }
+
+
+        #scoreContainer {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #game {
+            position: relative;
+            width: 100%;
+        }
+
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1d25;
+            display: none;
+        }
+
+        #gameOver button{
+            all: unset;
+            border-radius: 50%;
+            font-size: 2em;
+            padding: .5em;
+            color: #fff;
+            background-color: #000;
+            cursor: pointer;
+        }
+
+        #tela {
             display: block;
             margin: auto;
-            background-color: #2d2d2d;
+            width: 100%;
+            background-color: #25272d;
         }
     </style>
 </head>
+
 <body>
-    <canvas id="tela"></canvas>
+    <main>
+        <header>
+            <div id="scoreContainer">
+                <h1><i class="fa-solid fa-apple-whole"></i> <span id="score">0</span></h1>
+                <h1><i class="fa-solid fa-star"></i> <span id="record">0</span></h1>
+            </div>
+        </header>
+        <section id="game">
+            <div id="gameOver">
+                <h2>Game Over</h2>
+                <button onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+            <canvas id="tela">
+                Erro...
+            </canvas>
+        </section>
+    </main>
 </body>
+
 </html>

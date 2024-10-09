@@ -10,7 +10,7 @@ class Snake {
 
         this.body.forEach((element,index)=>{
             if(index == this.body.length - 1)return
-            if(element.x == head.x && element.y == head.y)alert("Game over")
+            if(element.x == head.x && element.y == head.y)gameOver()
         })
 
         this.body.forEach((postion, index) => {
@@ -26,6 +26,7 @@ class Snake {
 
         if (head.x == food.x && head.y == food.y) {
             this.body.push({ x: food.x, y: food.y })
+            score()
             food.randomPosition()
         }
 
@@ -48,8 +49,6 @@ class Snake {
         this.body.shift()
 
 
-        if (head.x < 0 || head.x > canvas.width - snake.size || head.y < 0 || head.y > canvas.height - snake.size) {
-            alert("game over")
-        }
+        if (head.x < 0 || head.x > canvas.width - snake.size || head.y < 0 || head.y > canvas.height - snake.size)gameOver()
     }
 }
