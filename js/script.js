@@ -78,7 +78,15 @@ function score() {
 }
 
 function gameOver() {
+    const gameScreen = document.querySelector("#game")
     const gameOverContainer = document.querySelector("#gameOver")
-    gameOverContainer.style.display = "flex"
+
     gameOverStatus = true
+    setTimeout(() => { gameOverContainer.classList.remove("hidden") }, 1000)
+
+    gameScreen.classList.add("apply-shake");
+
+    gameScreen.addEventListener("animationend", (e) => {
+        gameScreen.classList.remove("apply-shake");
+    });
 }
